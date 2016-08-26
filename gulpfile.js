@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    clean = require('gulp-clean'),
     addsrc = require('gulp-add-src'),
     vulcanize = require('gulp-vulcanize'),
     htmlmin = require('gulp-htmlmin'),
@@ -10,6 +11,11 @@ var gulp = require('gulp'),
     bump = require('gulp-bump'),
     filter = require('gulp-filter'),
     tag_version = require('gulp-tag-version');
+
+gulp.task('clean', function() {
+    return gulp.src('dist', {read: false})
+        .pipe(clean());
+});
 
 gulp.task('vulcanize', function () {
     return gulp.src('vulcanized.html')
@@ -56,4 +62,4 @@ gulp.task('publish', ['build'], function() {
         .pipe(tag_version());
 });
 
-gulp.task('build', ['vulcanize', 'minify']);
+gulp.task('build', ['clean', 'vulcanize', 'minify']);
