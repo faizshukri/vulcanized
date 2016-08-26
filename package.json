@@ -1,10 +1,11 @@
 {
   "name": "vulcanized",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "vulcanized.html",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
     "gulp-bump": "^2.4.0",
     "gulp-filter": "^4.0.0",
     "gulp-git": "^1.11.2",
@@ -12,7 +13,8 @@
     "gulp-minify-inline": "^0.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-tag-version": "^1.3.0",
-    "gulp-vulcanize": "^6.1.0"
+    "gulp-vulcanize": "^6.1.0",
+    "yargs": "^5.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
