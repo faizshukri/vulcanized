@@ -1,8 +1,10 @@
 var gulp = require('gulp'),
+    addsrc = require('gulp-add-src'),
     vulcanize = require('gulp-vulcanize'),
     htmlmin = require('gulp-htmlmin'),
     minifyInline = require('gulp-minify-inline'),
     rename = require('gulp-rename'),
+    argv = require('yargs').argv,
 
     git = require('gulp-git'),
     bump = require('gulp-bump'),
@@ -29,24 +31,29 @@ gulp.task('minify', ['vulcanize'], function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['vulcanize', 'minify']);
+gulp.task('publish', ['build'], function() {
 
-gulp.task('patch', ['build'], function() { return inc('patch'); });
-gulp.task('feature', ['build'], function() { return inc('minor'); });
-gulp.task('release', ['build'], function() { return inc('major'); });
+    var type = 'patch';
 
-function inc(importance) {
-    // get all the files to bump version in
+    if (argv.minor) {
+        type = 'minor';
+    } else if (argv.major) {
+        type = 'major';
+    }
+
     return gulp.src(['./package.json', './bower.json'])
-    // bump the version number in those files
-        .pipe(bump({type: importance}))
+        // bump the version number in those files
+        .pipe(bump({type: type}))
         // save it back to filesystem
         .pipe(gulp.dest('./'))
+        // add more source
+        .pipe(addsrc('./dist/*'))
         // commit the changed version number
         .pipe(git.commit('bumps package version'))
-
         // read only one file to get the version number
         .pipe(filter('package.json'))
         // **tag it in the repository**
         .pipe(tag_version());
-}
+});
+
+gulp.task('build', ['vulcanize', 'minify']);
