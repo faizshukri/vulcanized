@@ -1,0 +1,28 @@
+<!--
+This element is doing some fancy stuff
+
+@demo demo/fs-bar.html
+-->
+
+<dom-module id="fs-bar">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <h2>Hello from Bar</h2>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'fs-bar',
+            properties: {
+                name: {
+                    type: String,
+                    value: 'Hai there',
+                }
+            }
+        });
+    </script>
+</dom-module>

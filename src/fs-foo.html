@@ -1,0 +1,28 @@
+<!--
+`Deprecated`. Don't use this element anymore.
+
+@demo demo/fs-foo.html
+-->
+
+<dom-module id="fs-foo">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <h2>Hello from Foo</h2>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'fs-foo',
+            properties: {
+                name: {
+                    type: String,
+                    value: 'Hai there',
+                }
+            }
+        });
+    </script>
+</dom-module>

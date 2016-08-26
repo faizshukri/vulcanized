@@ -1,0 +1,14 @@
+{
+  "name": "vulcanized",
+  "version": "0.1.0",
+  "authors": [
+    "Faiz Shukri <faiz.shukri@servicerocket.com>"
+  ],
+  "main": "vulcanized.html",
+  "license": "MIT",
+  "devDependencies": {
+    "polymer": "^1.6.1",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5"
+  }
+}

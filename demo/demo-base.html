@@ -1,0 +1,32 @@
+<title>first-element demo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+<link rel="import" href="../vulcanized.html">
+<link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+<link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+
+<dom-module id="demo-base">
+    <template>
+        <style is="custom-style" include="demo-pages-shared-styles"></style>
+        <div class="vertical-section-container centered">
+
+            <h2>[[title]]</h2>
+
+            <demo-snippet>
+                <content></content>
+            </demo-snippet>
+
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'demo-base',
+            properties: {
+                title: String
+            }
+        });
+    </script>
+</dom-module>
