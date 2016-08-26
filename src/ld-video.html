@@ -1,0 +1,28 @@
+<!--
+This element take wistia video id, and convert it to iframe.
+
+@demo demo/ld-video.html
+-->
+
+<dom-module id="ld-video">
+    <template>
+        <template is="dom-if" if="[[id]]">
+            <div class="flex-video widescreen vimeo shortcode-video">
+                <iframe src="//fast.wistia.net/embed/iframe/[[id]]?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen>
+                </iframe>
+            </div>
+        </template>
+        <template is="dom-if" if="[[!id]]">
+            <h3>No video id is specified</h3>
+        </template>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ld-video',
+            properties: {
+                id: String
+            }
+        });
+    </script>
+</dom-module>
